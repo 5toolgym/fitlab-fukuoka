@@ -1,0 +1,51 @@
+name: 架空ジムデータ自動修正
+
+on:
+  # 毎月1日の朝9時（JST = UTC 0:00）
+  schedule:
+    - cron: '0 0 1 * *'
+
+  # 手動実行ボタン（GitHub ActionsのUIから即時実行可能）
+  workflow_dispatch:
+
+jobs:
+  update-gym-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 依存パッケージをインストール
+        run: npm ci
+
+      - name: 架空ジムデータの修正を実行
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/update-gym-data.js
+
+      - name: サイトをビルド
+        run: node scripts/build.js
+
+      - name: 変更があればコミット・プッシュ
+        run: |
+          git config --global user.name "FitLab Bot"
+          git config --global user.email "bot@fitlab-fukuoka.pages.dev"
+          git add articles/
+          git diff --staged --quiet || git commit -m "auto: 架空ジムデータを実在ジム情報に自動更新"
+          git push
+
+      - name: Cloudflare Pages にデプロイ
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: fitlab-fukuoka
+          directory: public
