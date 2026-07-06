@@ -453,7 +453,7 @@ function ldFAQ(items) {
 function ldPerson() {
   return { '@context': 'https://schema.org', '@type': 'Person', name: '柴山智幸', alternateName: 'しばやまともゆき',
     jobTitle: 'パーソナルトレーナー・5toolgymオーナー',
-    description: 'NCCA（全日本コンディショニングコーチ協会）講師。体性感覚トレーニング・機能改善指導の専門家。',
+    description: 'NCCA（全日本コンディショニングコーチ協会）講師。姿勢改善・コンディショニング指導を得意とするパーソナルトレーナー。',
     worksFor: [{ '@type': 'Organization', name: '5toolgym 薬院店' }, { '@type': 'Organization', name: '5toolgym 赤坂・大濠公園店' }],
     url: `${SITE_URL}/trainer.html` };
 }
@@ -524,7 +524,7 @@ ${nav()}
     <h2>書いていること</h2>
     <p>姿勢改善・ダイエット・機能改善に関する記事を中心に、福岡のジム選びや専門家とのコラボ記事を公開しています。カテゴリは「姿勢改善」「ダイエット」「トレーニング」「ジム選び」「栄養・食事」「福岡の専門家」の6つです。</p>
     <h2>書いているトレーナー</h2>
-    <p>柴山智幸（しばやまともゆき）。5toolgym薬院店・赤坂店のオーナートレーナー。NCCA（全日本コンディショニングコーチ協会）講師資格保有。体性感覚トレーニング・機能改善指導を専門としています。</p>
+    <p>柴山智幸（しばやまともゆき）。5toolgym薬院店・赤坂店のオーナートレーナー。NCCA（全日本コンディショニングコーチ協会）講師資格保有。姿勢改善・コンディショニング指導を得意としています。</p>
     <p>詳しくは<a href="/trainer.html" style="color:#00884a">トレーナープロフィール</a>をご覧ください。</p>
     <h2>5toolgymについて</h2>
     <ul>
@@ -543,7 +543,7 @@ ${footer()}
 }
 
 function buildTrainer() {
-  const html = `${head({ title: '柴山智幸｜5toolgymオーナートレーナー・NCCA講師', desc: 'NCCA講師資格保有。体性感覚トレーニング・機能改善指導の専門家。5toolgym薬院店・赤坂店のオーナートレーナー、柴山智幸のプロフィールページ。', canonical: `${SITE_URL}/trainer.html` })}
+  const html = `${head({ title: '柴山智幸｜5toolgymオーナートレーナー・NCCA講師', desc: 'NCCA講師資格保有。姿勢改善・機能改善指導を得意とする5toolgym薬院店・赤坂店のオーナートレーナー、柴山智幸のプロフィールページ。', canonical: `${SITE_URL}/trainer.html` })}
 <body>
 ${nav()}
 <main>
@@ -555,8 +555,8 @@ ${nav()}
       <p class="trainer-role">5toolgymオーナー・チーフトレーナー / NCCA講師</p>
       <ul class="cred-list">
         <li>NCCA（全日本コンディショニングコーチ協会）講師資格</li>
-        <li>体性感覚トレーニング 専門</li>
-        <li>機能改善指導 専門</li>
+        <li>姿勢改善・機能改善指導</li>
+        <li>コンディショニング指導</li>
         <li>5toolgym 薬院店・赤坂店 オーナー</li>
       </ul>
     </div>
@@ -566,15 +566,15 @@ ${nav()}
   <div class="philosophy-box">
     <p>「楽に、強く、心地よく」——これが5toolgymの哲学です。</p>
     <p>多くの方を見てきて気づいたのは、体型が変わらない方の多くは鍛え方が間違っているのではなく、<strong>カラダの使い方に問題がある</strong>ということ。姿勢が整っていないまま運動すると、むしろ痛みが出る。動きのクセを直さないと、何年通っても変わらない。</p>
-    <p>だから私は、まず「機能を整える」ことを先にやります。体性感覚を再学習し、カラダが本来持っている動きを取り戻す。その上で筋力・体力をつけていくことで、無理なく、長く続けられるカラダづくりができると考えています。</p>
+    <p>だから私は、まず「機能を整える」ことを先にやります。カラダが本来持っている動きを取り戻す。その上で筋力・体力をつけていくことで、無理なく、長く続けられるカラダづくりができると考えています。</p>
   </div>
 
-  <h2 style="font-size:1.1rem;font-weight:700;margin:28px 0 14px;padding-bottom:7px;border-bottom:2px solid #0a0a0a">専門分野</h2>
+  <h2 style="font-size:1.1rem;font-weight:700;margin:28px 0 14px;padding-bottom:7px;border-bottom:2px solid #0a0a0a">指導内容</h2>
   <ul style="padding-left:20px;line-height:2.2;font-size:.92rem">
-    <li><strong>体性感覚トレーニング</strong>：筋肉・関節・皮膚からの感覚入力を活用したトレーニング手法</li>
+    <li><strong>姿勢改善</strong>：猫背・反り腰・巻き肩など、姿勢の根本から整える</li>
     <li><strong>機能改善指導</strong>：姿勢・動作パターンの根本的な改善</li>
-    <li><strong>コンディショニング</strong>：パフォーマンス向上のためのカラダのコンディション管理</li>
-    <li><strong>NCCA講師資格</strong>：コンディショニングコーチの育成にも携わる</li>
+    <li><strong>コンディショニング</strong>：カラダのコンディション管理とパフォーマンス向上</li>
+    <li><strong>NCCA講師</strong>：コンディショニングコーチの育成にも携わる</li>
   </ul>
 
   <h2 style="font-size:1.1rem;font-weight:700;margin:28px 0 14px;padding-bottom:7px;border-bottom:2px solid #0a0a0a">執筆記事</h2>

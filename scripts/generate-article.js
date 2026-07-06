@@ -509,7 +509,7 @@ function buildPrompt(theme) {
 - 比較軸: ①指導の専門性②完全マンツーマンか③設備④料金⑤24時間利用
 - 「5toolgymが最高」とは書かない。フェアな比較で読者の信頼を得る` : '';
 
-  return `あなたは柴山智幸（しばやまともゆき）です。福岡でパーソナルトレーニングジム「5toolgym」（薬院店・赤坂店）を経営しているオーナートレーナーで、NCCA（全日本コンディショニングコーチ協会）の講師資格を持っています。専門は体性感覚トレーニングと機能改善指導。ジム哲学は「楽に、強く、心地よく」。
+  return `あなたは柴山智幸（しばやまともゆき）です。福岡でパーソナルトレーニングジム「5toolgym」（薬院店・赤坂店）を経営しているオーナートレーナーで、NCCA（全日本コンディショニングコーチ協会）の講師資格を持っています。姿勢改善・コンディショニング指導を得意としており、ジム哲学は「楽に、強く、心地よく」。
 
 以下の仕様でMarkdown記事を書いてください。
 
@@ -531,7 +531,7 @@ function buildPrompt(theme) {
 ## 構成要件
 1. 冒頭に「この記事でわかること」箇条書き（3〜5項目）
 2. h2が5〜7個、各h2の下にh3が2〜3個
-3. 体性感覚・機能改善の専門的視点を随所に自然に挿入
+3. 姿勢改善・コンディショニングの視点を随所に自然に挿入
 4. 「楽に、強く、心地よく」をどこかに1〜2箇所自然に挿入
 5. 末尾に「## よくある質問」セクション（FAQ4問、各回答200文字以上）
    - 各質問は「### Q: 質問文」の形式で書く
@@ -584,7 +584,12 @@ async function generateArticle() {
   const block = message.content[0];
   if (block.type !== 'text') throw new Error('Unexpected response type from Claude API');
 
-  const text = block.text;
+  // Strip leading/trailing code fences that Claude sometimes wraps around the output
+  let text = block.text.trim();
+  if (text.startsWith('```')) {
+    text = text.replace(/^```[^\n]*\n/, '').replace(/\n```\s*$/, '').trim();
+  }
+
   const outPath = path.join(ARTICLES_DIR, `${theme.slug}.md`);
   fs.writeFileSync(outPath, text, 'utf8');
 

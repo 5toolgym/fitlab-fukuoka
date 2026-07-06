@@ -1,4 +1,3 @@
-```
 ---
 title: "赤坂駅のパーソナルジム比較｜完全個室の価値とは"
 slug: "akasaka-eki-personal-gym"
