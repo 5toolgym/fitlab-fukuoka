@@ -11,7 +11,7 @@ const matter = require('gray-matter');
 // ============================================================
 const SITE_URL = 'https://fitlab-fukuoka.pages.dev';
 const SITE_NAME = 'FitLab Fukuoka';
-const SITE_DESC = '福岡のパーソナルトレーニング情報メディア。5toolgymのトレーナーが姿勢改善・ダイエット・ジム選びを徹底解説。';
+const SITE_DESC = '福岡のパーソナルトレーニング情報メディア。姿勢改善・ダイエット・ジム選びを現役トレーナーが現場の言葉で解説。';
 const GA4_ID = 'G-28580FZYHB';
 
 const CATEGORIES = [
@@ -20,7 +20,7 @@ const CATEGORIES = [
   { slug: 'training',  name: 'トレーニング',   desc: 'トレーニングの正しい知識と方法を、NCCA講師資格保有者が解説。' },
   { slug: 'gym',       name: 'ジム選び',       desc: '福岡でパーソナルジムを選ぶときのポイントを現役トレーナー目線で。' },
   { slug: 'nutrition', name: '栄養・食事',     desc: 'トレーニングの効果を最大化する食事・栄養の知識を解説。' },
-  { slug: 'expert',    name: '福岡の専門家',   desc: '福岡で活躍する専門家との対談・コラボ記事。' },
+  { slug: 'expert',    name: '福岡の専門家',   desc: '福岡で活躍する専門家・施設の紹介と解説記事。' },
 ];
 
 const YAKUIN = {
@@ -490,8 +490,8 @@ ${nav()}
 <main>
 <div class="wrap">
   <section class="index-hero">
-    <h1>福岡のパーソナルジムで<br><em>楽に、強く、心地よく</em></h1>
-    <p>5toolgymのトレーナーが姿勢改善・ダイエット・機能改善について現場の言葉で書くオウンドメディアです。</p>
+    <h1>福岡の<em>カラダ改善</em>情報メディア</h1>
+    <p>姿勢改善・ダイエット・パーソナルジム選びを、現役トレーナーが現場の言葉で解説します。</p>
   </section>
   <section style="padding:44px 0">
     <p class="sec-title">カテゴリ</p>
@@ -503,7 +503,6 @@ ${nav()}
 </main>
 ${footer()}
 ${ld(ldWebSite())}
-${ldLocalBusinesses().map(ld).join('\n')}
 </body></html>`;
 
   fs.writeFileSync(path.join(DIRS.public, 'index.html'), html, 'utf8');
