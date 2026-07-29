@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node scripts/build.js",
     "generate": "node scripts/generate-article.js",
-    "generate-and-build": "node scripts/generate-article.js && node scripts/build.js"
+    "check-articles": "node scripts/check-articles.mjs",
+    "generate-and-build": "node scripts/generate-article.js && node scripts/check-articles.mjs && node scripts/build.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.27.0",
